@@ -8,10 +8,10 @@ import {
 import { useState } from 'react';
 
 import { FontAwesome as Icon } from '@expo/vector-icons';
-import fonts from './src/styles/fonts';
+import fonts from '../styles/fonts';
 
-import { Header } from './src/components/header';
-import colors from './src/styles/colors';
+import { Header } from '../components/header';
+import colors from '../styles/colors';
 
 export default function App() {
 
