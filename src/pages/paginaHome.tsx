@@ -3,15 +3,14 @@ import {
   Text,
   View,
   StyleSheet,
-  TextInput,
 } from 'react-native';
 
-import fonts from './src/styles/fonts';
+import fonts from '../styles/fonts';
+import colors from '../styles/colors';
 
-import { Header } from './src/components/header';
-import colors from './src/styles/colors';
-import { CardFamily } from './src/components/cardFamily';
-import { Footer } from './src/components/footer';
+import { Header } from '../components/header';
+import { CardFamily } from '../components/cardFamily';
+import { Footer } from '../components/footer';
 
 export default function App() {
   return (
