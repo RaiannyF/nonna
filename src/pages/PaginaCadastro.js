@@ -1,11 +1,8 @@
 import React from 'react';
 import {
-  Text,
   View,
   StyleSheet,
   TextInput,
-  TouchableOpacity,
-  ScrollView
 } from 'react-native';
 import { useState } from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -68,8 +65,8 @@ export function PaginaCadastro({ navigation }) {
           keyboardType="name-phone-pad"
           onChangeText={(codigo) => setCodigo(Number(codigo))}
         />
-        
-       <View style={styles.input}>
+
+        <View style={styles.input}>
           <DateTimePicker value={new Date()}
             display="calendar"
             mode="date" //The enum of date, datetime and time
@@ -81,24 +78,30 @@ export function PaginaCadastro({ navigation }) {
             cancelBtnText="Cancel"
           />
         </View>
-        
 
-<View  style={[styles.input, {paddingLeft: 10}]}>
-        <Picker
-          selectedValue={selectedOption}
-          onValueChange={(itemValue, itemIndex) =>
-            setSelectedOption(itemValue)
-          }
+
+        <View style={[styles.input, { paddingLeft: 10 }]}>
+          <Picker
+            selectedValue={selectedOption}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedOption(itemValue)
+            }
           >
-          <Picker.Item style={{fontFamily: fonts.textB,
-            fontSize: 14,
-            color: colors.grayInput}} label="Categoria" value="1" />
-          <Picker.Item style={{fontFamily: fonts.textB,
-            fontSize: 14,
-            color: colors.grayInput}}label="idoso" value="2" />
-          <Picker.Item style={{fontFamily: fonts.textB,
-            fontSize: 14, fontWeight: 'bold', color: colors.grayInput}}label="familiar" value="3" />
-        </Picker>
+            <Picker.Item style={{
+              fontFamily: fonts.textB,
+              fontSize: 14,
+              color: colors.grayInput
+            }} label="Categoria" value="1" />
+            <Picker.Item style={{
+              fontFamily: fonts.textB,
+              fontSize: 14,
+              color: colors.grayInput
+            }} label="idoso" value="2" />
+            <Picker.Item style={{
+              fontFamily: fonts.textB,
+              fontSize: 14, fontWeight: 'bold', color: colors.grayInput
+            }} label="familiar" value="3" />
+          </Picker>
         </View>
 
         <TextInput
