@@ -4,19 +4,30 @@ import {
   View,
   StyleSheet,
   TextInput,
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import { useState } from 'react';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Picker } from '@react-native-picker/picker';
 
-import { FontAwesome as Icon } from '@expo/vector-icons';
 import fonts from '../styles/fonts';
 
 import { Header } from '../components/header';
+import { Button } from '../components/button';
+
 import colors from '../styles/colors';
 
-export default function App() {
+export function PaginaCadastro({ navigation }) {
 
+  const [nome, setNome] = useState('');
   const [codigo, setCodigo] = useState(0);
   const [selectedOption, setSelectedOption] = useState(1);
+  const [date, setDate] = useState('09-10-2020');
+
+  function handleStart() {
+    navigation.navigate('PaginaHome', { nome: nome });
+  }
 
   return (
     <View style={styles.container} >
@@ -24,12 +35,13 @@ export default function App() {
         title="cadastro"
       />
 
-      <View style={styles.inputField} >
+      <View style={styles.inputField}>
+
         <TextInput
           style={styles.input}
           placeholder="Nome"
           keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
+          onChangeText={(nome) => setNome(String(nome))}
         />
         <TextInput
           style={styles.input}
@@ -56,19 +68,38 @@ export default function App() {
           keyboardType="name-phone-pad"
           onChangeText={(codigo) => setCodigo(Number(codigo))}
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Data de Nascimento"
-          keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Categoria"
-          keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
-        />
+        
+       <View style={styles.input}>
+          <DateTimePicker value={new Date()}
+            display="calendar"
+            mode="date" //The enum of date, datetime and time
+            placeholder="select date"
+            format="DD-MM-YYYY"
+            minDate="01-01-2016"
+            maxDate="01-01-2019"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+          />
+        </View>
+        
 
+<View  style={[styles.input, {paddingLeft: 10}]}>
+        <Picker
+          selectedValue={selectedOption}
+          onValueChange={(itemValue, itemIndex) =>
+            setSelectedOption(itemValue)
+          }
+          >
+          <Picker.Item style={{fontFamily: fonts.textB,
+            fontSize: 14,
+            color: colors.grayInput}} label="Categoria" value="1" />
+          <Picker.Item style={{fontFamily: fonts.textB,
+            fontSize: 14,
+            color: colors.grayInput}}label="idoso" value="2" />
+          <Picker.Item style={{fontFamily: fonts.textB,
+            fontSize: 14, fontWeight: 'bold', color: colors.grayInput}}label="familiar" value="3" />
+        </Picker>
+        </View>
 
         <TextInput
           style={styles.input}
@@ -78,35 +109,10 @@ export default function App() {
         />
       </View>
 
-      <View style={styles.lineItems}>
-        <View style={styles.line} />
-
-        <Text style={styles.textLine}> ou use </Text>
-
-        <View style={styles.line} />
-      </View>
-
-      <View style={styles.iconsLine}>
-        <View style={styles.iconDiv}>
-          <Icon
-            name="facebook-f"
-            style={styles.icon}
-          />
-        </View>
-
-        <View style={styles.iconDiv}>
-          <Icon
-            name="google"
-            style={styles.icon}
-          />
-        </View>
-        <View style={styles.iconDiv}>
-          <Icon
-            name="apple"
-            style={styles.icon}
-          />
-        </View>
-      </View>
+      <Button
+        text="cadastrar"
+        onPress={handleStart}
+      />
 
     </View>
   );
@@ -116,14 +122,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: colors.white
   },
   inputField: {
-    justifyContent: 'center',
     alignContent: 'center',
-    margin: 15
+    margin: 30
   },
   input: {
     backgroundColor: colors.gray,
+    fontFamily: fonts.textB,
+    fontSize: 14,
+    color: colors.grayInput,
     width: 310,
     height: 48,
     borderRadius: 15,
@@ -166,5 +175,16 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 30,
     textAlign: 'center'
+  },
+  picker: {
+    backgroundColor: colors.gray,
+    fontFamily: fonts.textB,
+    fontSize: 14,
+    color: colors.grayInput,
+    width: 310,
+    height: 48,
+    borderRadius: 15,
+    paddingLeft: 10,
+    margin: 5
   }
 });

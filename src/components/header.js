@@ -9,11 +9,7 @@ import {
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
-interface HeaderProps extends ViewProps {
-    title: string
-}
-
-export function Header({ title, ...rest }: HeaderProps) {
+export function Header({ title, ...rest }) {
     return (
         <View
             style={styles.container}

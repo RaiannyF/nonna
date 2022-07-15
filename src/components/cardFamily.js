@@ -10,13 +10,7 @@ import {
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
-interface CardFamilyProps extends ViewProps {
-    name: string,
-    adress: string,
-    photo: string
-}
-
-export function CardFamily({ name, adress, photo, ...rest }: CardFamilyProps) {
+export function CardFamily({ name, adress, photo, ...rest }) {
     return (
         <View
             style={styles.container}
@@ -55,8 +49,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     name: {
-        fontFamily: fonts.text,
-        fontWeight: 'bold',
+        fontFamily: fonts.textB,
         fontSize: 13,
         color: colors.grayText,
     },

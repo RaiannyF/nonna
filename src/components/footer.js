@@ -8,39 +8,36 @@ import {
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
-import { FontAwesome as Icon } from '@expo/vector-icons';
 
-interface FooterProps extends ViewProps {
-    title: string
-}
+import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 
-export function Footer({ title, ...rest }: FooterProps) {
+export function Footer({...rest }) {
     return (
         <View
             style={styles.container}
             {...rest}
         >
             <View style={styles.buttons}>
-                <Icon
-                    name="facebook"
+                <Ionicons
+                    name="home-sharp"
                     style={styles.icon}
                 />
             </View>
             <View style={styles.buttons}>
-                <Icon
-                    name="facebook"
+                <FontAwesome5
+                    name="search"
                     style={styles.icon}
                 />
             </View>
             <View style={styles.buttons}>
-                <Icon
-                    name="facebook"
+                <FontAwesome5
+                    name="box-open"
                     style={styles.icon}
                 />
             </View>
             <View style={styles.buttons}>
-                <Icon
-                    name="facebook"
+                <FontAwesome5
+                    name="user-alt"
                     style={styles.icon}
                 />
             </View>
@@ -68,6 +65,6 @@ const styles = StyleSheet.create({
     },
     icon: {
         color: colors.white,
-        fontSize: 20
+        fontSize: 18
     }
 });

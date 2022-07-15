@@ -1,98 +1,52 @@
 import React from 'react';
+import AppLoading from 'expo-app-loading';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { PaginaCadastro } from './src/pages/PaginaCadastro'
+import { PaginaHome } from './src/pages/PaginaHome';
+
+const Stack = createNativeStackNavigator();
+
 import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-} from 'react-native';
+  useFonts,
+  Baloo2_400Regular,
+  Baloo2_700Bold
+} from '@expo-google-fonts/dev';
 
-import fonts from './src/styles/fonts';
-
-import { Header } from './src/components/header';
-import colors from './src/styles/colors';
-import { CardFamily } from './src/components/cardFamily';
-import { Footer } from './src/components/footer';
+import {
+  Itim_400Regular,
+} from '@expo-google-fonts/itim';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Baloo2_400Regular,
+    Baloo2_700Bold,
+    Itim_400Regular
+  });
+
+  if (!fontsLoaded)
+    return <AppLoading />
+
   return (
-    <View style={styles.container} >
-      <Header
-        title="nonna" />
-
-      <View style={styles.textHeader}>
-        <Text style={styles.text}>Olá,</Text>
-        <Text style={styles.text}><Text style={styles.textBold}>Dona Lillian</Text>! :) </Text>
-      </View>
-
-      <View style={styles.line}></View>
-
-      <Text style={styles.title}>familiares conectados</Text>
-
-      <View style={styles.cards}>
-        <CardFamily
-          name="Elsa Gardner"
-          adress="São Paulo (SP)"
-          photo="https://img.buzzfeed.com/store-an-image-prod-us-east-1/yMbV76H2H.png?output-format=jpg&output-quality=auto"
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false
+        }}>
+        <Stack.Screen
+          name="PaginaCadastro"
+          component={PaginaCadastro}
+          options={{ title: 'Cadastro' }}
+        />
+        <Stack.Screen
+          name="PaginaHome"
+          component={PaginaHome}
+          options={{ title: 'Home' }}
         />
 
-        <CardFamily
-          name="Elsa Gardner"
-          adress="São Paulo (SP)"
-          photo="https://img.buzzfeed.com/store-an-image-prod-us-east-1/yMbV76H2H.png?output-format=jpg&output-quality=auto"
-        />
-        <CardFamily
-          name="Elsa Gardner"
-          adress="São Paulo (SP)"
-          photo="https://img.buzzfeed.com/store-an-image-prod-us-east-1/yMbV76H2H.png?output-format=jpg&output-quality=auto"
-        />
-        <CardFamily
-          name="Elsa Gardner"
-          adress="São Paulo (SP)"
-          photo="https://img.buzzfeed.com/store-an-image-prod-us-east-1/yMbV76H2H.png?output-format=jpg&output-quality=auto"
-        />
-
-        <Footer
-        title="hmmmm"
-        />
-
-      </View>
-
-    </View>
-  );
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  textHeader: {
-    marginLeft: 30,
-    marginTop: 18
-  },
-  text: {
-    fontFamily: fonts.text,
-    fontSize: 22,
-    color: colors.grayText
-  },
-  textBold: {
-    fontWeight: "bold"
-  },
-  line: {
-    backgroundColor: colors.grayLineTwo,
-    alignSelf: 'center',
-    height: 1,
-    width: '25%',
-    opacity: 0.5,
-    margin: 15
-  },
-  title: {
-    fontFamily: fonts.text,
-    fontSize: 18,
-    marginLeft: 30,
-    color: colors.grayText
-  },
-  cards: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
