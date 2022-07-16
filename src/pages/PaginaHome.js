@@ -6,14 +6,13 @@ import {
 } from 'react-native';
 
 import fonts from '../styles/fonts';
+import colors from '../styles/colors';
 
 import { Header } from '../components/header';
-import colors from '../styles/colors';
 import { CardFamily } from '../components/cardFamily';
 import { Footer } from '../components/footer';
 
-
-export function PaginaHome( { navigation, route}) {
+export function PaginaHome({ navigation, route }) {
   return (
     <View style={styles.container} >
       <Header
@@ -50,11 +49,8 @@ export function PaginaHome( { navigation, route}) {
           adress="São Paulo (SP)"
           photo="https://cdn.acritica.net/img/pc/920/600/dn_arquivo/2021/07/rw.jpg.webp"
         />
-
-        <Footer/>
-
+        <Footer />
       </View>
-
     </View>
   );
 }
