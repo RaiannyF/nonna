@@ -42,7 +42,7 @@ export function Footer({ ...rest }) {
 
             <TouchableOpacity 
             style={styles.buttons}
-            onPress={() => navigation.navigate('PaginaCaixa')}
+            onPress={() => navigation.navigate('PaginaCaixas')}
             >
                 <FontAwesome5
                     name="box-open"

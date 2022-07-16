@@ -9,4 +9,6 @@ export default {
     grayButton: '#C0C0C0',
   
     pink: '#FFB0C6',
+    pinkBox: '#FBFBFB',
+    boxName: '#FAC6D4'
   };

@@ -8,6 +8,7 @@ import { PaginaCadastro } from './src/pages/PaginaCadastro'
 import { PaginaHome } from './src/pages/PaginaHome';
 import { PaginaAjuda } from './src/pages/PaginaAjuda';
 import { PaginaFamiliar } from './src/pages/PaginaFamiliar';
+import { PaginaCaixas } from './src/pages/PaginaCaixas';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,11 @@ export default function App() {
           name="PaginaFamiliar"
           component={PaginaFamiliar}
           options={{ title: 'Familiar' }}
+        />
+        <Stack.Screen
+          name="PaginaCaixas"
+          component={PaginaCaixas}
+          options={{ title: 'Caixas' }}
         />
 
       </Stack.Navigator>
