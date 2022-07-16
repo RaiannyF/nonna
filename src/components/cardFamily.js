@@ -1,19 +1,23 @@
 import React from 'react';
 import {
     Text,
-    StyleSheet,
     View,
-    ViewProps,
+    StyleSheet,
+    TouchableOpacity,
     Image
 } from 'react-native';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
+import {useNavigation} from '@react-navigation/native';
+
 export function CardFamily({ name, adress, photo, ...rest }) {
+    const navigation = useNavigation();
     return (
-        <View
+        <TouchableOpacity
             style={styles.container}
+            onPress={() => navigation.navigate('PaginaFamiliar')}
             {...rest}
         >
             <Image
@@ -28,7 +32,7 @@ export function CardFamily({ name, adress, photo, ...rest }) {
                 {adress}
             </Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 };
 

@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { PaginaCadastro } from './src/pages/PaginaCadastro'
 import { PaginaHome } from './src/pages/PaginaHome';
 import { PaginaAjuda } from './src/pages/PaginaAjuda';
+import { PaginaFamiliar } from './src/pages/PaginaFamiliar';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +51,11 @@ export default function App() {
           name="PaginaAjuda"
           component={PaginaAjuda}
           options={{ title: 'Ajuda' }}
+        />
+        <Stack.Screen
+          name="PaginaFamiliar"
+          component={PaginaFamiliar}
+          options={{ title: 'Familiar' }}
         />
 
       </Stack.Navigator>
