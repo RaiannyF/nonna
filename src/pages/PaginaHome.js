@@ -20,7 +20,7 @@ export function PaginaHome({ navigation, route }) {
 
       <View style={styles.textHeader}>
         <Text style={styles.text}>Olá,</Text>
-        <Text style={styles.text}><Text style={styles.textBold}>{route.params.nome}</Text>! :) </Text>
+        <Text style={styles.text}><Text style={styles.textBold}>gay</Text>! :) </Text>
       </View>
 
       <View style={styles.line}></View>

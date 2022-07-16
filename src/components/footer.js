@@ -1,46 +1,64 @@
 import React from 'react';
 import {
-    Text,
     StyleSheet,
     View,
-    ViewProps
+    TouchableOpacity
 } from 'react-native';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
+import {useNavigation} from '@react-navigation/native';
+
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 
-export function Footer({...rest }) {
+export function Footer({ ...rest }) {
+
+    const navigation = useNavigation();
     return (
         <View
             style={styles.container}
             {...rest}
         >
-            <View style={styles.buttons}>
+            <TouchableOpacity 
+            style={styles.buttons}
+            onPress={() => navigation.navigate('PaginaHome')}
+            >
                 <Ionicons
                     name="home-sharp"
                     style={styles.icon}
                 />
-            </View>
-            <View style={styles.buttons}>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+            style={styles.buttons}
+            onPress={() => navigation.navigate('PaginaPesquisa')}
+            >
                 <FontAwesome5
                     name="search"
                     style={styles.icon}
                 />
-            </View>
-            <View style={styles.buttons}>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+            style={styles.buttons}
+            onPress={() => navigation.navigate('PaginaCaixa')}
+            >
                 <FontAwesome5
                     name="box-open"
                     style={styles.icon}
                 />
-            </View>
-            <View style={styles.buttons}>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+            style={styles.buttons}
+            onPress={() => navigation.navigate('PaginaPesquisa')}
+            >
                 <FontAwesome5
                     name="user-alt"
                     style={styles.icon}
                 />
-            </View>
+            </TouchableOpacity>
         </View>
     )
 };
