@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: colors.white
     },
     info: {
         flex: 1,

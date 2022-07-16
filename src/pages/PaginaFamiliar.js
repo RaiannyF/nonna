@@ -74,6 +74,7 @@ export function PaginaFamiliar({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: colors.white
     },
     info: {
         alignItems: 'center',
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
         marginBottom: 190
     },
     line: {
-        height: 2,
+        height: 1,
         backgroundColor: colors.grayLineThree,
         opacity: 0.5
     },
