@@ -9,6 +9,7 @@ import { PaginaHome } from './src/pages/PaginaHome';
 import { PaginaAjuda } from './src/pages/PaginaAjuda';
 import { PaginaFamiliar } from './src/pages/PaginaFamiliar';
 import { PaginaCaixas } from './src/pages/PaginaCaixas';
+import { PaginaBusca } from './src/pages/PaginaBusca';
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +63,12 @@ export default function App() {
           name="PaginaCaixas"
           component={PaginaCaixas}
           options={{ title: 'Caixas' }}
+        />
+
+        <Stack.Screen
+          name="PaginaBusca"
+          component={PaginaBusca}
+          options={{ title: 'Busca' }}
         />
 
       </Stack.Navigator>

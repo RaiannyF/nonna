@@ -32,7 +32,7 @@ export function Footer({ ...rest }) {
 
             <TouchableOpacity 
             style={styles.buttons}
-            onPress={() => navigation.navigate('PaginaPesquisa')}
+            onPress={() => navigation.navigate('PaginaBusca')}
             >
                 <FontAwesome5
                     name="search"
@@ -52,7 +52,7 @@ export function Footer({ ...rest }) {
 
             <TouchableOpacity 
             style={styles.buttons}
-            onPress={() => navigation.navigate('PaginaPesquisa')}
+            onPress={() => navigation.navigate('PaginaPerfil')}
             >
                 <FontAwesome5
                     name="user-alt"
