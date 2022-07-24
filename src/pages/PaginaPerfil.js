@@ -13,7 +13,7 @@ import colors from '../styles/colors';
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 
-import { Ionicons, Feather, MaterialCommunityIcons, AntDesign, EvilIcons } from '@expo/vector-icons';
+import { Ionicons, Feather, MaterialCommunityIcons, AntDesign} from '@expo/vector-icons';
 
 export function PaginaPerfil({ navigation }) {
     return (
@@ -57,7 +57,8 @@ export function PaginaPerfil({ navigation }) {
 
                 <View style={styles.line} />
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('PaginaAjuda')}>
+                onPress={() => navigation.navigate('PaginaAjuda')}
+                >
                     <Feather
                         name="info"
                         style={styles.icon}
@@ -68,7 +69,9 @@ export function PaginaPerfil({ navigation }) {
                 </TouchableOpacity>
 
                 <View style={styles.line} />
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                onPress={() => navigation.navigate('PaginaCodigoFamiliar')}
+                >
                     <Ionicons
                         name="share-social-outline"
                         style={styles.icon}

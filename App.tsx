@@ -11,6 +11,8 @@ import { PaginaFamiliar } from './src/pages/PaginaFamiliar';
 import { PaginaCaixas } from './src/pages/PaginaCaixas';
 import { PaginaBusca } from './src/pages/PaginaBusca';
 import { PaginaPerfil } from './src/pages/PaginaPerfil';
+import { PaginaCodigoFamiliar } from './src/pages/PaginaCodigoFamiliar';
+import { PaginaCodigoIdoso } from './src/pages/PaginaCodigoIdoso';
 
 const Stack = createNativeStackNavigator();
 
@@ -76,6 +78,18 @@ export default function App() {
           name="PaginaPerfil"
           component={PaginaPerfil}
           options={{ title: 'Perfil' }}
+        />
+
+        <Stack.Screen
+          name="PaginaCodigoFamiliar"
+          component={PaginaCodigoFamiliar}
+          options={{ title: 'CodigoFamiliar' }}
+        />
+
+        <Stack.Screen
+          name="PaginaCodigoIdoso"
+          component={PaginaCodigoIdoso}
+          options={{ title: 'CodigoIdoso' }}
         />
 
       </Stack.Navigator>
