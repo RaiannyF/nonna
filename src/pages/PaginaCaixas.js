@@ -48,7 +48,9 @@ export function PaginaCaixas({ navigation }) {
                 <CardBox />
                 <CardBox />
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                onPress={() => navigation.navigate('PaginaPlano')}
+                >
                     <Text style={styles.sub}>
                         Gerenciar plano atual
                     </Text>
