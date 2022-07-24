@@ -13,6 +13,7 @@ import { PaginaBusca } from './src/pages/PaginaBusca';
 import { PaginaPerfil } from './src/pages/PaginaPerfil';
 import { PaginaCodigoFamiliar } from './src/pages/PaginaCodigoFamiliar';
 import { PaginaCodigoIdoso } from './src/pages/PaginaCodigoIdoso';
+import { PaginaLocalizacao } from './src/pages/PaginaLocalizacao';
 
 const Stack = createNativeStackNavigator();
 
@@ -90,6 +91,12 @@ export default function App() {
           name="PaginaCodigoIdoso"
           component={PaginaCodigoIdoso}
           options={{ title: 'CodigoIdoso' }}
+        />
+
+        <Stack.Screen
+          name="PaginaLocalizacao"
+          component={PaginaLocalizacao}
+          options={{ title: 'Localizacao' }}
         />
 
       </Stack.Navigator>
