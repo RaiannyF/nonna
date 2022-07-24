@@ -14,6 +14,7 @@ import { PaginaPerfil } from './src/pages/PaginaPerfil';
 import { PaginaCodigoFamiliar } from './src/pages/PaginaCodigoFamiliar';
 import { PaginaCodigoIdoso } from './src/pages/PaginaCodigoIdoso';
 import { PaginaLocalizacao } from './src/pages/PaginaLocalizacao';
+import { PaginaPlano } from './src/pages/PaginaPlano';
 
 const Stack = createNativeStackNavigator();
 
@@ -97,6 +98,12 @@ export default function App() {
           name="PaginaLocalizacao"
           component={PaginaLocalizacao}
           options={{ title: 'Localizacao' }}
+        />
+
+        <Stack.Screen
+          name="PaginaPlano"
+          component={PaginaPlano}
+          options={{ title: 'Plano' }}
         />
 
       </Stack.Navigator>

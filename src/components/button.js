@@ -11,7 +11,6 @@ import {
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
-
 export function Button({ text, ...rest }) {
     return (
         <TouchableOpacity
@@ -34,7 +33,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 7,
         alignSelf: 'center',
-        margin: 5
+        margin: 5,
+        marginBottom: 15
     },
     title: {
         fontFamily: fonts.header,
