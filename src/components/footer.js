@@ -8,7 +8,7 @@ import {
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 

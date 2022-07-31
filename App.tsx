@@ -15,6 +15,9 @@ import { PaginaCodigoFamiliar } from './src/pages/PaginaCodigoFamiliar';
 import { PaginaCodigoIdoso } from './src/pages/PaginaCodigoIdoso';
 import { PaginaLocalizacao } from './src/pages/PaginaLocalizacao';
 import { PaginaPlano } from './src/pages/PaginaPlano';
+import { PaginaCompra } from './src/pages/PaginaCompra';
+import { PaginaCompraRealizada } from './src/pages/PaginaCompraRealizada';
+import { PaginaEndereco } from './src/pages/PaginaEndereco';
 
 const Stack = createNativeStackNavigator();
 
@@ -104,6 +107,24 @@ export default function App() {
           name="PaginaPlano"
           component={PaginaPlano}
           options={{ title: 'Plano' }}
+        />
+
+        <Stack.Screen
+          name="PaginaCompra"
+          component={PaginaCompra}
+          options={{ title: 'Compra' }}
+        />
+
+        <Stack.Screen
+          name="PaginaCompraRealizada"
+          component={PaginaCompraRealizada}
+          options={{ title: 'CompraRealizada' }}
+        />
+
+        <Stack.Screen
+          name="PaginaEndereco"
+          component={PaginaEndereco}
+          options={{ title: 'Endereco' }}
         />
 
       </Stack.Navigator>

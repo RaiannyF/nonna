@@ -11,8 +11,10 @@ import {
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
+import {useNavigation} from '@react-navigation/native';
 
 export function CardBox({ ...rest }) {
+    const navigation = useNavigation();
     return (
         <View
             style={styles.container}
@@ -34,7 +36,9 @@ export function CardBox({ ...rest }) {
                 </Text>
             </View>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+            onPress={() => navigation.navigate('PaginaCompra')}
+            >
                 <Text style={[styles.name, { fontSize: 35 }]}> ASSINE > </Text>
             </TouchableOpacity>
         </View>
