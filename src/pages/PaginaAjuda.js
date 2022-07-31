@@ -16,7 +16,9 @@ export function PaginaAjuda({ navigation }) {
     return (
         <View style={styles.container} >
 
-            <ScrollView styles={styles.info}>
+            <ScrollView styles={styles.info}
+            showsVerticalScrollIndicator={false}
+            >
 
                 <Header
                     title="ajuda" />

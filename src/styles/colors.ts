@@ -10,5 +10,7 @@ export default {
   
     pink: '#FFB0C6',
     pinkBox: '#FBFBFB',
-    boxName: '#FAC6D4'
+    boxName: '#FAC6D4',
+
+    border: '#CDCDCD'
   };
