@@ -71,6 +71,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
+        position: 'absolute', 
+        left: 0, 
+        right: 0, 
+        bottom: 3
     },
     buttons: {
         backgroundColor: colors.grayText,
