@@ -49,8 +49,8 @@ export function PaginaHome({ navigation, route }) {
           adress="São Paulo (SP)"
           photo="https://cdn.acritica.net/img/pc/920/600/dn_arquivo/2021/07/rw.jpg.webp"
         />
-        <Footer />
       </View>
+      <Footer />
     </View>
   );
 }

@@ -34,7 +34,7 @@ export function PaginaBusca({ navigation }) {
                 onChangeText={(codigo) => setCodigo(Number(codigo))}
             />
 
-            <ScrollView 
+            <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
             >
@@ -57,7 +57,7 @@ export function PaginaBusca({ navigation }) {
             </ScrollView>
 
             <ScrollView style={styles.scroll}
-            showsVerticalScrollIndicator={false}>
+                showsVerticalScrollIndicator={false}>
                 <CardLocal
                     name="H. Arnaldo Gavazza"
                     street="Av. Doutor José Grossi, 54"
@@ -79,6 +79,7 @@ export function PaginaBusca({ navigation }) {
 
             </ScrollView>
 
+            <View style={{ height: 55 }}></View>
             <Footer />
         </View>
     );
@@ -105,5 +106,4 @@ const styles = StyleSheet.create({
         marginTop: 10,
         alignContent: 'center',
     }
-
 });

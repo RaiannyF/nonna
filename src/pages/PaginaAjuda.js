@@ -17,7 +17,7 @@ export function PaginaAjuda({ navigation }) {
         <View style={styles.container} >
 
             <ScrollView styles={styles.info}
-            showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
             >
 
                 <Header
@@ -67,7 +67,7 @@ export function PaginaAjuda({ navigation }) {
                 </Text>
                 <Text style={styles.text}>
                     Não é possível realizar compras ou contratações de serviço diretamente pelo nosso aplicativo. Entretanto, para facilitar o acesso dos idosos a tais estabelecimentos cadastramos eles no aplicativo, bem como seus respectivos produtos, com todas as informações, como preço e telefone, para que funcione como uma ferramenta de intermédio facilitada entre idoso e estabelecimento.</Text>
-                
+
                 <Text style={styles.subtitle}>
                     ⠂Caixas
                 </Text>
@@ -78,13 +78,14 @@ export function PaginaAjuda({ navigation }) {
                     2. Semestral, que garantirá 6 caixas e que ao cancelar você deverá pagar uma multa  equivalente aos meses que ainda restavam;{'\n'}
                     3. Anual, que garantirá 12 caixas e que ao cancelar você deverá pagar uma multa equivalente aos meses que ainda restavam.{'\n'}
                 </Text>
-                
+
                 <Text style={[styles.text, { marginBottom: 15 }]}>
                     Para mais informações sobre cada um dos planos, navegue até a página das caixas e leia as informações!
-                    </Text>
-
-                <Footer />
+                </Text>
             </ScrollView>
+            
+            <View style={{ height: 55 }}></View>
+            <Footer />
         </View>
     );
 }

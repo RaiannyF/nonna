@@ -72,7 +72,7 @@ export function PaginaPerfil({ navigation }) {
 
                 <View style={styles.line} />
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('PaginaCodigoFamiliar')}
+                onPress={() => navigation.navigate('PaginaCodigoIdoso')}
                 >
                     <Ionicons
                         name="share-social-outline"

@@ -21,7 +21,7 @@ export function PaginaCaixas({ navigation }) {
         <View style={styles.container} >
 
             <ScrollView styles={styles.info}
-            showsVerticalScrollIndicator={false}>
+                showsVerticalScrollIndicator={false}>
 
                 <Header
                     title="caixas" />
@@ -50,7 +50,7 @@ export function PaginaCaixas({ navigation }) {
                 <CardBox />
 
                 <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('PaginaPlano')}
+                    onPress={() => navigation.navigate('PaginaPlano')}
                 >
                     <Text style={styles.sub}>
                         Gerenciar plano atual
@@ -60,9 +60,10 @@ export function PaginaCaixas({ navigation }) {
                     </Text>
 
                 </TouchableOpacity>
-
-                <Footer />
             </ScrollView>
+
+            <View style={{ height: 55 }}></View>
+            <Footer />
         </View>
     );
 }
