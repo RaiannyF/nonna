@@ -64,7 +64,6 @@ export function PaginaBusca({ navigation }) {
                     address="Guarapiranga, Ponte Nova"
                     photo="https://lh3.googleusercontent.com/p/AF1QipM_THFDn20_nHnu1OZUm1JqO_PBFgyr_GeKyTOV=s1600-w400" />
 
-
                 <CardLocal
                     name="Supermercado Pouppy"
                     street="R. Santo Antônio, 13"

@@ -18,6 +18,7 @@ import { PaginaPlano } from './src/pages/PaginaPlano';
 import { PaginaCompra } from './src/pages/PaginaCompra';
 import { PaginaCompraRealizada } from './src/pages/PaginaCompraRealizada';
 import { PaginaEndereco } from './src/pages/PaginaEndereco';
+import { PaginaEstabelecimento } from './src/pages/PaginaEstabelecimento';
 
 const Stack = createNativeStackNavigator();
 
@@ -125,6 +126,12 @@ export default function App() {
           name="PaginaEndereco"
           component={PaginaEndereco}
           options={{ title: 'Endereco' }}
+        />
+
+        <Stack.Screen
+          name="PaginaEstabelecimento"
+          component={PaginaEstabelecimento}
+          options={{ title: 'Estabelecimento' }}
         />
 
       </Stack.Navigator>
