@@ -12,7 +12,7 @@ import colors from '../styles/colors';
 
 import { useNavigation } from '@react-navigation/native';
 
-export function CardLocal({ name, street, address, photo, ...rest }) {
+export function CardProduct({ name, price, photo, ...rest }) {
     const navigation = useNavigation();
 
     return (
@@ -23,16 +23,12 @@ export function CardLocal({ name, street, address, photo, ...rest }) {
                 source={{ uri: photo }}
                 style={styles.image} />
 
-            <View style={{ marginLeft: 15 }}>
+            <View style={{marginLeft: 15}}>
                 <Text style={styles.name}>
                     {name}
                 </Text>
 
-                <Text style={styles.address}>
-                    {street}
-                    {'\n'}
-                    {address}
-                </Text>
+                <Text style={styles.price}>{price}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -44,20 +40,21 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         flexDirection: 'row',
         alignItems: 'center',
-        margin: 15
+        justifyContent: 'flex-start',
+        marginLeft: 30,
+        marginVertical: 10
     },
     image: {
         width: 100,
         height: 100,
-        borderRadius: 15
+        borderRadius: 15,
     },
     name: {
         fontFamily: fonts.textB,
         fontSize: 20,
-        color: colors.grayText,
-        marginBottom: 5
+        color: colors.grayText
     },
-    address: {
+    price: {
         fontFamily: fonts.text,
         fontSize: 15,
         color: colors.grayInput
