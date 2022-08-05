@@ -37,7 +37,7 @@ export function PaginaEstabelecimento({ navigation }) {
                             name="map-pin"
                             style={styles.icon}
                         />
-                        <View style={{ width: 250 }}>
+                        <View style={{ width: 260 }}>
                             <Text style={styles.buttonText}>
                                 Rua Assad Zaidan, Palmeiras, nº 84 {'\n'}
                                 Ponte Nova - MG
@@ -53,7 +53,7 @@ export function PaginaEstabelecimento({ navigation }) {
                             name="phone"
                             style={styles.icon}
                         />
-                        <View style={{ width: 250 }}>
+                        <View style={{ width: 260 }}>
                             <Text style={styles.buttonText}>
                                 (31) 3817-3608
                             </Text>
