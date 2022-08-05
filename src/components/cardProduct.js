@@ -17,7 +17,7 @@ export function CardProduct({ name, price, photo, ...rest }) {
 
     return (
         <TouchableOpacity style={styles.container}
-        onPress={() => navigation.navigate('PaginaEstabelecimento')}
+        onPress={() => navigation.navigate('PaginaProduto')}
         >
             <Image
                 source={{ uri: photo }}
