@@ -1,11 +1,13 @@
 import React from 'react';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://192.168.0.104:3333';
+
 import {
   View,
   StyleSheet,
   TextInput,
 } from 'react-native';
 import { useState } from 'react';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { Picker } from '@react-native-picker/picker';
 
 import fonts from '../styles/fonts';
@@ -18,12 +20,29 @@ import colors from '../styles/colors';
 export function PaginaCadastro({ navigation }) {
 
   const [nome, setNome] = useState('');
-  const [codigo, setCodigo] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(1);
-  const [date, setDate] = useState('09-10-2020');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState(0);
+  const [endereco, setEndereco] = useState('');
+  const [senha, setSenha] = useState('');
+  const [categoria, setCategoria] = useState('');
 
-  function handleStart() {
-    navigation.navigate('PaginaHome', { nome: nome });
+  async function cadastrarUsuario() {
+    const usuario = {
+      nome,
+      email,
+      telefone,
+      endereco,
+      senha,
+      categoria
+    };
+    try {
+      await axios.post('/usuarios', usuario);
+      alert("Salvo com Sucesso!!!");
+
+    } catch (err) {
+      console.log(err);
+    }
+    navigation.navigate('PaginaHome');
   }
 
   return (
@@ -44,47 +63,33 @@ export function PaginaCadastro({ navigation }) {
           style={styles.input}
           placeholder="Email"
           keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
+          onChangeText={(email) => setEmail(String(email))}
         />
         <TextInput
           style={styles.input}
           placeholder="Telefone"
           keyboardType="numeric"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
+          onChangeText={(telefone) => setTelefone(Number(telefone))}
         />
         <TextInput
           style={styles.input}
           placeholder="Endereço"
           keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
+          onChangeText={(endereco) => setEndereco(String(endereco))}
         />
         <TextInput
           style={styles.input}
           placeholder="Senha"
           secureTextEntry={true}
           keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
+          onChangeText={(senha) => setSenha(String(senha))}
         />
-
-        <View style={styles.input}>
-          <DateTimePicker value={new Date()}
-            display="calendar"
-            mode="date" //The enum of date, datetime and time
-            placeholder="select date"
-            format="DD-MM-YYYY"
-            minDate="01-01-2016"
-            maxDate="01-01-2019"
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-          />
-        </View>
-
 
         <View style={[styles.input, { paddingLeft: 10 }]}>
           <Picker
-            selectedValue={selectedOption}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedOption(itemValue)
+            selectedValue={categoria}
+            onValueChange={(itemLabel, itemIndex,) =>
+              setCategoria(itemLabel)
             }
           >
             <Picker.Item style={{
@@ -103,18 +108,11 @@ export function PaginaCadastro({ navigation }) {
             }} label="familiar" value="3" />
           </Picker>
         </View>
-
-        <TextInput
-          style={styles.input}
-          placeholder="Foto"
-          keyboardType="name-phone-pad"
-          onChangeText={(codigo) => setCodigo(Number(codigo))}
-        />
       </View>
 
       <Button
         text="cadastrar"
-        onPress={handleStart}
+        onPress={cadastrarUsuario}
       />
 
     </View>
