@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Text,
   View,
   StyleSheet,
 } from 'react-native';
+
+import axios from 'axios';
+axios.defaults.baseURL = 'http://192.168.0.104:3333';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
@@ -11,8 +14,35 @@ import colors from '../styles/colors';
 import { Header } from '../components/header';
 import { CardFamily } from '../components/cardFamily';
 import { Footer } from '../components/footer';
+import { ProductCard } from '../components/cu';
 
 export function PaginaHome({ navigation, route }) {
+
+  const {response, setResponse = useState < Response > ([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [load, setLoad] = useState(true);
+
+  const listarUsuários = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get('/usuários');
+      setResponse(res.data);
+      setError("");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      setLoad(!load);
+    });
+    listarUsuarios();
+  }, [load, navigation]);
+
   return (
     <View style={styles.container} >
       <Header
@@ -21,6 +51,17 @@ export function PaginaHome({ navigation, route }) {
       <View style={styles.textHeader}>
         <Text style={styles.text}>Olá,</Text>
         <Text style={styles.text}><Text style={styles.textBold}>gay</Text>! :) </Text>
+      </View>
+
+      <View>
+        {response.map(usuario => (
+          <ProductCard key={String(produto.codigo)}
+            codigo={produto.codigo}
+            nome={produto.nome}
+            editarProduto={() => editarProduto(produto.codigo)}
+            excluirProduto={() => excluirProduto(produto.codigo)}
+          />
+        ))}
       </View>
 
       <View style={styles.line}></View>
