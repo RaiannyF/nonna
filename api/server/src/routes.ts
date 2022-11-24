@@ -33,10 +33,63 @@ routes.post('/usuarios', async (request, response) => {
 
 routes.get('/usuarios', async (request, response) => {
     const usuarios = await knex('usuario')
-        .select('usuario.codigo', 'usuario.nome');
+        .select('usuario.*');
 
     return response.json(usuarios);
 });
 
+routes.delete('/usuarios/:codigo', async (request, response) => {
+    const { codigo } = request.params;
+
+    await knex('usuario')
+        .delete()
+        .where('usuario.codigo', codigo);
+
+    return response.json({
+        status: 'sucess'
+    });
+});
+
+
+//familiares
+routes.post('/familiares', async (request, response) => {
+    const {
+        nome,
+        endereco,
+        telefone,
+        foto
+    } = request.body;
+
+    const familiar = {
+        nome,
+        endereco,
+        telefone,
+        foto
+    }
+
+    const insertedIds = await knex('familiar').insert(familiar);
+    const familiar_id = insertedIds[0];
+
+    return response.json({
+        id: familiar_id,
+        ...familiar
+    });
+});
+
+routes.get('/familiares', async (request, response) => {
+    const familiares = await knex('familiar')
+        .select('familiar.*');
+
+    return response.json(familiares);
+});
+
+routes.get('/familiares/:codigo', async (request, response) => {
+    const { codigo } = request.params;
+
+    const familiar = await knex('familiar')
+        .select('familiar.*')
+        .where('familiar.codigo', codigo)
+
+    return response.json(familiar);
+})
 export default routes;
- 

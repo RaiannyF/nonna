@@ -17,7 +17,6 @@ export function CardFamily({ name, adress, photo, ...rest }) {
     return (
         <TouchableOpacity
             style={styles.container}
-            onPress={() => navigation.navigate('PaginaFamiliar')}
             {...rest}
         >
             <Image
