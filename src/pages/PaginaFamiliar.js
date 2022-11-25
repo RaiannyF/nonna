@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     Text,
     View,
@@ -14,7 +14,30 @@ import { Footer } from '../components/footer';
 
 import { Entypo, SimpleLineIcons, Feather } from '@expo/vector-icons';
 
-export function PaginaFamiliar({ navigation }) {
+export function PaginaFamiliar({ navigation, route }) {
+
+    const [nome, setNome] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [foto, setFoto] = useState('');
+
+    useEffect(() => {
+        async function buscarFamiliar(codigo) {
+            try {
+                const response = await axios.get('/familiares/${codigo}');
+                setNome(response.data.nome);
+                setEndereco(response.data.endereco);
+                setTelefone(response.data.telefone);
+                setFoto(response.data.foto);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        const codigo = route.params.codigoFamiliar;
+
+        if (codigo != 0)
+            buscarFamiliar(codigo);
+    }, []);
     return (
         <View style={styles.container} >
             <Header
@@ -26,7 +49,7 @@ export function PaginaFamiliar({ navigation }) {
                     style={styles.image}
                 />
                 <Text style={styles.name}>
-                    Elsa Gardner
+                   {nome}
                 </Text>
             </View>
 
