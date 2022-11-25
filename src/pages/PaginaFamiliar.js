@@ -12,6 +12,9 @@ import colors from '../styles/colors';
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
 
+import axios from 'axios';
+axios.defaults.baseURL = 'http://10.140.20.155:3333';
+
 import { Entypo, SimpleLineIcons, Feather } from '@expo/vector-icons';
 
 export function PaginaFamiliar({ navigation, route }) {

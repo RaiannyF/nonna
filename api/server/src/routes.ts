@@ -50,6 +50,36 @@ routes.delete('/usuarios/:codigo', async (request, response) => {
     });
 });
 
+routes.put('/usuarios/:codigo', async (request, response)=> {
+    const { codigo } = request.params;
+
+    const {
+        nome,
+        email,
+        telefone,
+        endereco,
+        senha,
+        categoria
+    } = request.body;
+
+    const usuario = {
+        nome,
+        email,
+        telefone,
+        endereco,
+        senha,
+        categoria
+    }
+
+    await knex('usuario')
+        .update(usuario)
+        .where ('codigo', codigo);
+
+    return response.json({
+        status: 'sucess',
+        data: usuario
+    });
+});
 
 //familiares
 routes.post('/familiares', async (request, response) => {
