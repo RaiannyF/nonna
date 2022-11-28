@@ -12,7 +12,7 @@ import colors from '../styles/colors';
 
 import { useNavigation } from '@react-navigation/native';
 
-export function CardLocal({ name, street, address, photo, ...rest }) {
+export function CardLocal({ name, street, adress, photo, ...rest }) {
     const navigation = useNavigation();
 
     return (
@@ -28,10 +28,10 @@ export function CardLocal({ name, street, address, photo, ...rest }) {
                     {name}
                 </Text>
 
-                <Text style={styles.address}>
+                <Text style={styles.adress}>
                     {street}
                     {'\n'}
-                    {address}
+                    {adress}
                 </Text>
             </View>
         </TouchableOpacity>
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         color: colors.grayText,
         marginBottom: 5
     },
-    address: {
+    adress: {
         fontFamily: fonts.text,
         fontSize: 15,
         color: colors.grayInput

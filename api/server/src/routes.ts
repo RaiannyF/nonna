@@ -81,7 +81,6 @@ routes.put('/usuarios/:codigo', async (request, response)=> {
     });
 });
 
-//familiares
 routes.post('/familiares', async (request, response) => {
     const {
         nome,
@@ -113,6 +112,37 @@ routes.get('/familiares', async (request, response) => {
     return response.json(familiares);
 });
 
+routes.post('/estabelecimentos', async (request, response) => {
+    const {
+        foto,
+        nome,
+        rua,
+        bairro
+    } = request.body;
+
+    const estabelecimento = {
+        foto,
+        nome,
+        rua,
+        bairro
+    }
+
+    const insertedIds = await knex('estabelecimento').insert(estabelecimento);
+    const estabelecimento_id = insertedIds[0];
+
+    return response.json({
+        id: estabelecimento_id,
+        ...estabelecimento
+    });
+});
+
+routes.get('/estabelecimentos', async (request, response) => {
+    const estabelecimentos = await knex('estabelecimento')
+        .select('estabelecimento.*');
+
+    return response.json(estabelecimentos);
+});
+
 routes.get('/familiares/:codigo', async (request, response) => {
     const { codigo } = request.params;
 
@@ -121,5 +151,6 @@ routes.get('/familiares/:codigo', async (request, response) => {
         .where('familiar.codigo', codigo)
 
     return response.json(familiar);
-})
+});
+
 export default routes;

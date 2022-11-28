@@ -21,8 +21,7 @@ export function PaginaHome({ navigation, route }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [load, setLoad] = useState(true);
-
-  const [code, setCode] = useState("");
+  
 
   useEffect(() => {
     navigation.addListener('focus', () => {
