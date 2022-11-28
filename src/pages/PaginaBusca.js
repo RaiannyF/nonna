@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import {
     Text,
     View,
@@ -7,7 +8,8 @@ import {
     ScrollView
 } from 'react-native';
 
-import { useState } from 'react';
+import axios from 'axios';
+axios.defaults.baseURL = 'http://10.140.20.155:3333';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
@@ -20,7 +22,38 @@ import { CardLocal } from '../components/cardLocal';
 
 export function PaginaBusca({ navigation }) {
 
+    const [response, setResponse] = useState([]);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [load, setLoad] = useState(true);
+
+
+    useEffect(() => {
+        navigation.addListener('focus', () => {
+            setLoad(!load);
+        });
+
+        async function listarEstabelecimentos() {
+            setLoading(true);
+            try {
+                const res = await axios.get('/estabelecimentos');
+                setResponse(res.data);
+                setError("");
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        listarEstabelecimentos();
+    }, [load, navigation]);
+
     const [codigo, setCodigo] = useState(0);
+
+    function handleEstabelecimento(){
+        navigation.navigate('PaginaEstabelecimento');
+    }
 
     return (
         <View style={styles.container} >
@@ -58,23 +91,16 @@ export function PaginaBusca({ navigation }) {
 
             <ScrollView style={styles.scroll}
                 showsVerticalScrollIndicator={false}>
-                <CardLocal
-                    name="H. Arnaldo Gavazza"
-                    street="Av. Doutor José Grossi, 54"
-                    address="Guarapiranga, Ponte Nova"
-                    photo="https://lh3.googleusercontent.com/p/AF1QipM_THFDn20_nHnu1OZUm1JqO_PBFgyr_GeKyTOV=s1600-w400" />
+                {response.map(estabelecimento => (
+                    <CardLocal key={String(estabelecimento.codigo)}
+                        photo={estabelecimento.foto}    
+                        name={estabelecimento.nome}
+                        street={estabelecimento.rua}
+                        adress={estabelecimento.bairro}
 
-                <CardLocal
-                    name="Supermercado Pouppy"
-                    street="R. Santo Antônio, 13"
-                    address="Santo Antônio, Ponte Nova"
-                    photo="https://lh3.googleusercontent.com/p/AF1QipPPXP19qIOfxVl-EGQeyrSeqcCJJ9zvF9E535Mb=s1600-w400" />
-
-                <CardLocal
-                    name="H. Nossa Senhora das Dores"
-                    street="R. Doutor Leonardo, 200"
-                    address="Centro, Ponte Nova"
-                    photo="https://www.cisamapi.mg.gov.br/images/migracao/02022019200120_ihnsd.jpg" />
+                        onPress={handleEstabelecimento}
+                    />
+                ))}
 
             </ScrollView>
 

@@ -20,6 +20,7 @@ import { PaginaCompraRealizada } from './src/pages/PaginaCompraRealizada';
 import { PaginaEndereco } from './src/pages/PaginaEndereco';
 import { PaginaEstabelecimento } from './src/pages/PaginaEstabelecimento';
 import { PaginaProduto } from './src/pages/PaginaProduto';
+import { PaginaSenha } from './src/pages/PaginaSenha';
 
 const Stack = createNativeStackNavigator();
 
@@ -139,6 +140,12 @@ export default function App() {
           name="PaginaProduto"
           component={PaginaProduto}
           options={{ title: 'Produto' }}
+        />
+
+        <Stack.Screen
+          name="PaginaSenha"
+          component={PaginaSenha}
+          options={{ title: 'Senha' }}
         />
 
       </Stack.Navigator>

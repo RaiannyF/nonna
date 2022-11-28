@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'http://192.168.0.104:3333';
+axios.defaults.baseURL = 'http://10.140.20.155:3333';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
@@ -21,8 +21,7 @@ export function PaginaHome({ navigation, route }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [load, setLoad] = useState(true);
-
-  const [code, setCode] = useState("");
+  
 
   useEffect(() => {
     navigation.addListener('focus', () => {
@@ -70,7 +69,7 @@ export function PaginaHome({ navigation, route }) {
             adress={familiar.endereco}
             photo={familiar.foto}
 
-            onPress={handleFamiliar(familiar.codigo)}
+            onPress={handleFamiliar}
           />
         ))}
       </View>

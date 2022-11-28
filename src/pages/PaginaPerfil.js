@@ -35,7 +35,7 @@ export function PaginaPerfil({ navigation }) {
 
                 <View style={styles.line} />
                 <TouchableOpacity style={styles.button}
-                 onPress={() => navigation.navigate('PaginaLocalizacao')}
+                 onPress={() => navigation.navigate('PaginaSenha')}
                 >
                     <MaterialCommunityIcons
                         name="account-circle-outline"
