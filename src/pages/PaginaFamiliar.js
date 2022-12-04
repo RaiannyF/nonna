@@ -6,14 +6,14 @@ import {
     Image,
 } from 'react-native';
 
+import axios from 'axios';
+axios.defaults.baseURL = 'http://10.140.20.155:3333';
+
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
 
 import { Header } from '../components/header';
 import { Footer } from '../components/footer';
-
-import axios from 'axios';
-axios.defaults.baseURL = 'http://10.140.20.155:3333';
 
 import { Entypo, SimpleLineIcons, Feather } from '@expo/vector-icons';
 
@@ -27,11 +27,11 @@ export function PaginaFamiliar({ navigation, route }) {
     useEffect(() => {
         async function buscarFamiliar(codigo) {
             try {
-                const response = await axios.get('/familiares/${codigo}');
-                setNome(response.data.nome);
-                setEndereco(response.data.endereco);
-                setTelefone(response.data.telefone);
-                setFoto(response.data.foto);
+                const response = await axios.get(`/familiares/${codigo}`);
+                setNome(response.data[0].nome);
+                setEndereco(response.data[0].endereco);
+                setTelefone(response.data[0].telefone);
+                setFoto(response.data[0].foto);
             } catch (err) {
                 console.log(err);
             }
@@ -48,7 +48,7 @@ export function PaginaFamiliar({ navigation, route }) {
 
             <View style={styles.info}>
                 <Image
-                    source={{ uri: 'https://www.postavy.cz/foto/elsa-gardner-foto.jpg' }}
+                    source={{ uri: foto }}
                     style={styles.image}
                 />
                 <Text style={styles.name}>
@@ -65,7 +65,7 @@ export function PaginaFamiliar({ navigation, route }) {
                         style={styles.icon}
                     />
                     <Text style={styles.text}>
-                        Rua Santo Antônio, São Paulo - SP
+                        {endereco}
                     </Text>
                 </View>
 
@@ -76,7 +76,7 @@ export function PaginaFamiliar({ navigation, route }) {
                         style={styles.icon}
                     />
                     <Text style={styles.text}>
-                        (31) 99899-8365
+                       {telefone}
                     </Text>
                 </View>
                 <View style={styles.line} />
