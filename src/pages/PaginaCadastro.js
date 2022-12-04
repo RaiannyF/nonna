@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://10.140.20.155:3333';
+axios.defaults.baseURL = 'http://192.168.0.107:3333';
 
 import {
   View,

@@ -21,7 +21,6 @@ export function PaginaHome({ navigation, route }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [load, setLoad] = useState(true);
-  
 
   useEffect(() => {
     navigation.addListener('focus', () => {
@@ -55,7 +54,7 @@ export function PaginaHome({ navigation, route }) {
 
       <View style={styles.textHeader}>
         <Text style={styles.text}>Olá, </Text>
-        <Text style={styles.text}><Text style={styles.textBold}>gay</Text>! :) </Text>
+        <Text style={styles.text}><Text style={styles.textBold}>pessoa</Text>! :) </Text>
       </View>
 
       <View style={styles.line}></View>
@@ -69,7 +68,7 @@ export function PaginaHome({ navigation, route }) {
             adress={familiar.endereco}
             photo={familiar.foto}
 
-            onPress={handleFamiliar}
+            onPress={ () => handleFamiliar(familiar.codigo) }
           />
         ))}
       </View>
